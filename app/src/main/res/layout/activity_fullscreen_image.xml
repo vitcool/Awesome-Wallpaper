@@ -41,18 +41,22 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/ico_apply"
+        android:background="@drawable/rounded_rectangles"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ico_apply" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:paddingLeft="10dp"
             android:text="@string/set_wallpaper"
             android:textColor="@color/white"
@@ -69,18 +73,22 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/ico_download"
+        android:background="@drawable/rounded_rectangles"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ico_download" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:paddingLeft="10dp"
             android:text="@string/download_wallpaper"
             android:textColor="@color/white"

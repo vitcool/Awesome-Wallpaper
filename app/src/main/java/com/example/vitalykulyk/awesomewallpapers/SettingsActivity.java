@@ -9,14 +9,25 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.zip.CheckedInputStream;
 
 public class SettingsActivity extends Activity {
     private PrefManager pref;
     private TextView txtGoogleUsername, txtNoOfGridColumns, txtGalleryName;
     private Button btnSave;
+    private CheckBox checkBox;
+    private Spinner spinnner;
+
+    String[] data = {"freewallpapersapp", "ss.wallpaper", "vitalcool25", "105927590489669519903", "101745641470758574647"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +38,54 @@ public class SettingsActivity extends Activity {
         txtNoOfGridColumns = (TextView) findViewById(R.id.txtNoOfColumns);
         txtGalleryName = (TextView) findViewById(R.id.txtGalleryName);
         btnSave = (Button) findViewById(R.id.btnSave);
+        spinnner = (Spinner) findViewById(R.id.spinner);
+        spinnner.setEnabled(false);
+        spinnner.setPrompt("Change from list");// @string
+        spinnner.setSelection(0);
+        
+        checkBox = (CheckBox)findViewById(R.id.checkbox_userChange);
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtGoogleUsername.setEnabled(!checkBox.isChecked());
+                spinnner.setEnabled(checkBox.isChecked());
+            }
+        });
+
+        //adapter for spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnner.setAdapter(adapter);
+        spinnner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (checkBox.isChecked()) {
+                    txtGoogleUsername.setText(data[position]);
+                }
+                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
 
         pref = new PrefManager(getApplicationContext());
 
         // Display edittext values stored in shared preferences
         // Google username
         txtGoogleUsername.setText(pref.getGoogleUserName());
+
+        txtGoogleUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtGoogleUsername.setText("");
+            }
+        });
 
         // Number of grid columns
         txtNoOfGridColumns.setText(String.valueOf(pref.getNoOfGridColumns()));
