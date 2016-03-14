@@ -133,13 +133,13 @@ public class MainActivity extends Activity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-//            case R.id.action_settings:
-//                // Selected settings menu item
-//                // launch Settings activity
-//                Intent intent = new Intent(MainActivity.this,
-//                        SettingsActivity.class);
-//                startActivity(intent);
-//                return true;
+            case R.id.action_settings:
+                // Selected settings menu item
+                // launch Settings activity
+                Intent intent = new Intent(MainActivity.this,
+                        SettingsActivity.class);
+                startActivity(intent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

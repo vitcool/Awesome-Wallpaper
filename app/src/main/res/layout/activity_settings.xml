@@ -19,7 +19,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/ic_drawer"
+        android:background="@color/counter_text_color"
         android:inputType="text"
         android:singleLine="true" />
 
@@ -36,7 +36,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@color/grid_bg"
+        android:background="@color/counter_text_color"
         android:inputType="number"
         android:singleLine="true" />
 
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/lbl_gallery_name"
-        android:textColor="@color/settings_label"
+        android:textColor="@color/counter_text_color"
         android:textSize="16dp" />
 
     <EditText
@@ -53,14 +53,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:background="@color/grid_bg"
+        android:background="@color/counter_text_color"
         android:singleLine="true" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/grid_bg"
+        android:background="#00ff00"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:text="@string/lbl_btn_save"

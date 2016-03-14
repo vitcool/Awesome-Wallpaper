@@ -9,6 +9,7 @@ import com.example.vitalykulyk.awesomewallpapers.picasa.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +20,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -31,6 +33,9 @@ public class SplashActivity extends Activity {
     private static final String TAG_FEED = "feed", TAG_ENTRY = "entry",
             TAG_GPHOTO_ID = "gphoto$id", TAG_T = "$t",
             TAG_ALBUM_TITLE = "title";
+    ImageView splashImage;
+
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,21 @@ public class SplashActivity extends Activity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getActionBar().hide();
         setContentView(R.layout.activity_splash);
+        splashImage = (ImageView)findViewById(R.id.splash_image);
+        int randorn = random.nextInt(2);
+        int src;
+        switch (randorn){
+            case 0:{
+                src = R.drawable.splash_screen;
+                break;
+            }
+            case 1:{
+                src = R.drawable.splash_screen_2;
+                break;
+            }
+            default:src =  R.drawable.splash_screen;
+        }
+        splashImage.setImageResource(src);
 
         // Picasa request to get list of albums
         String url = AppConst.URL_PICASA_ALBUMS
