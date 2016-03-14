@@ -42,7 +42,7 @@ public class SettingsActivity extends Activity {
         spinnner.setEnabled(false);
         spinnner.setPrompt("Change from list");// @string
         spinnner.setSelection(0);
-        
+
         checkBox = (CheckBox)findViewById(R.id.checkbox_userChange);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
